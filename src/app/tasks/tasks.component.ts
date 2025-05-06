@@ -11,6 +11,10 @@ export class TasksComponent {
   tasks: Task[] = [{
     id: 1,
     name: "Commit changes",
-    isComplete: false
+    isComplete: true
   }, new Task()];
+
+  finishTask(item: Task) {
+      item.isComplete = true;
+  }
 }
