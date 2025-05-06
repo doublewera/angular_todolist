@@ -1,6 +1,6 @@
 export class Task {
     id: number = 0;
-    name: string = "";
+    name: string = "Nothing to do";
     isComplete: boolean = false;
     constructor () {}
 }

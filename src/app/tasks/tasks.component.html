@@ -1,1 +1,12 @@
-<p>tasks works!</p>
+<h2>Your tasks:</h2>
+<ol>
+    @for (task of tasks; track task) {
+        <li>
+            @if (task.isComplete) {
+               <s>{{task.name}}</s>
+            } @else {
+                {{task.name}}
+            }
+        </li>
+    }
+</ol>

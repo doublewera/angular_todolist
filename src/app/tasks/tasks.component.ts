@@ -8,9 +8,9 @@ import { Task } from './task';
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
-  task: Task = {
+  tasks: Task[] = [{
     id: 1,
     name: "Commit changes",
     isComplete: false
-  };
+  }, new Task()];
 }
