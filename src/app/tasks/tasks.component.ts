@@ -12,7 +12,11 @@ import { WorklistService } from './worklist.service';
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
-  tasks: Task[] = (new WorklistService()).tasks_from_service();
+  tasks: Task[] = [];
+  
+  constructor(service: WorklistService) {
+    this.tasks = service.tasks_from_service();
+  }
 
   finishTask(item: Task) {
       item.isComplete = true;
