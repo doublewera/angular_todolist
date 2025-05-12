@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
 import { Task } from './task';
+import { WorklistService } from './worklist.service';
 
 @Component({
   selector: 'app-tasks',
   imports: [],
+  providers: [
+    WorklistService
+  ],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
-  tasks: Task[] = [{
-    id: 1,
-    name: "Commit changes",
-    isComplete: true
-  }, new Task()];
+  tasks: Task[] = (new WorklistService()).tasks_from_service();
 
   finishTask(item: Task) {
       item.isComplete = true;
