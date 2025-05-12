@@ -1,15 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Task } from './task'
+import { Task } from './task';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WorklistService {
+  #tasks: Task[] = [];
 
-  constructor() { }
-
-  tasks_from_service(): Task [] {
-    return [
+  constructor() {
+    this.#tasks = [
       { id: 1, name: 'Commit changes', isComplete:false },
       { id: 2, name: 'Do my homework', isComplete:false },
       { id: 3, name: 'Prepare presentation', isComplete:false },
@@ -19,5 +18,9 @@ export class WorklistService {
       { id: 7, name: 'Start learning Angular',  isComplete:false },
       { id: 9, name: 'Feed my dog', isComplete:false }
      ];
+  }
+
+  tasks_from_service(): Task [] {
+    return this.#tasks;
   }
 }

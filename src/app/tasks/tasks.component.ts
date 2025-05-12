@@ -5,15 +5,12 @@ import { WorklistService } from './worklist.service';
 @Component({
   selector: 'app-tasks',
   imports: [],
-  providers: [
-    WorklistService
-  ],
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
   tasks: Task[] = [];
-  
+
   constructor(service: WorklistService) {
     this.tasks = service.tasks_from_service();
   }
