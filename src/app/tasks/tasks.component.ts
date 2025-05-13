@@ -14,7 +14,4 @@ export class TasksComponent {
     this.tasks = service.tasks_from_service();
   }
 
-  finishTask(item: Task) {
-      item.isComplete = true;
-  }
 }
