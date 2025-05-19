@@ -8,23 +8,23 @@ import { HttpClient } from '@angular/common/http';
 export class WorklistService {
   #tasks: Task[] = [];
 
+  set task(description: Task) {
+    this.#tasks.push(description);
+  }
+
   constructor(private http: HttpClient) {
     this.http.get<Task[]>('/getTasks',
       {observe: 'response'}).subscribe((res) => {
         console.log(res.body);
+        if (res.body) {
+          for (let t of res.body) {
+            console.log(t);
+            this.task = new Task(t.name);
+          }
+        }
         // this.#tasks = res.body ? res.body : [];
-        this.#tasks = res.body ? res.body : [];
+        //this.#tasks = res.body ? res.body : [];
         console.log('constructor',  this.#tasks);
-      }
-    );
-  }
-
-  ngOnInit() {
-    this.http.get<Task[]>('/getTasks',
-      {observe: 'response'}).subscribe((res) => {
-        //console.log(res.body);
-        this.#tasks = res.body ? res.body : [];
-        console.log('onInit',  this.#tasks);
       }
     );
   }
